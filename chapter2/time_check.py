@@ -14,5 +14,5 @@ tm.start()
 edge = cv2.Canny(img, 50, 150)
 
 tm.stop()
-ms = tm.getTimeMilli()
+ms = tm.getTimeMilli() 
 print('Elaspsed time {}ms'.format(ms))
