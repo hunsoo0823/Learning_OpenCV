@@ -1,0 +1,25 @@
+import numpy as np
+import cv2
+import sys
+import random
+
+src = cv2.imread('milkdrop.bmp', cv2.IMREAD_GRAYSCALE)
+    
+if src is None:
+    print('Image load failed!')
+    sys.exit()
+
+_, src_bin = cv2.threshold(src, 0, 255, cv2.THRESH_OTSU)
+contours, _ = cv2.findContours(src_bin, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
+
+h, w = src.shape[:2]
+dst = np.zeros((h, w, 3), np.uint8)
+
+for i in range(len(contours)):
+    c = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+    cv2.drawContours(dst, contours, i, c, 2, cv2.LINE_8)
+
+cv2.imshow('src', src)
+cv2.imshow('dst', dst)
+cv2.waitKey()
+cv2.destroyAllWindows()
