@@ -62,9 +62,9 @@ def main():
         cv2.rectangle(dst, (x, y, w, h), (0, 255, 255))
         cv2.putText(dst, str(digit), (x, y-4), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, cv2.LINE_AA)
 
-        cv2.imshow('dst', dst)
-        cv2.waitKey()
-        cv2.destroyAllWindows()
+    cv2.imshow('dst', dst)
+    cv2.waitKey()
+    cv2.destroyAllWindows()
 
 if __name__ == '__main__':
     main()
